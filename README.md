@@ -67,4 +67,15 @@ VALUES (1,'Abhishek','Kataria','Delhi','2015-12-10',70000,1,2),
 DELETE FROM company.departments WHERE Dept_Name = ‘info’;
 
 3------------------------------------------------------------------------
+The following sample anonymous block 
+selects an employee last name into a variable and prints the name:
+DECLARE
+ v_lname VARCHAR2(25);
+BEGIN
+ SELECT last_name INTO v_lname
+ FROM employees
+ WHERE employee_id = 101;
+ DBMS_OUTPUT.PUT_LINE('Employee last name is '||v_lname);
+END;
+
 
