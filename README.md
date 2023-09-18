@@ -1,4 +1,4 @@
-1-------------------------------------------------------
+ii1-------------------------------------------------------
 CREATE DATABASE Company;
 CREATE TABLE `company`.`departments` (
 `Dept_ID` INT NOT NULL AUTO_INCREMENT,
@@ -66,16 +66,21 @@ VALUES (1,'Abhishek','Kataria','Delhi','2015-12-10',70000,1,2),
 
 DELETE FROM company.departments WHERE Dept_Name = ‘info’;
 
-3------------------------------------------------------------------------
-The following sample anonymous block 
-selects an employee last name into a variable and prints the name:
-DECLARE
- v_lname VARCHAR2(25);
+3------------------------------------------------------------------
+CREATE PROCEDURE hire_employees 
+ (p_last_name VARCHAR2, p_job_id VARCHAR2, p_manager_id NUMBER, p_hire_date DATE, 
+ p_salary NUMBER, p_commission_pct NUMBER, p_department_id NUMBER)
+IS
 BEGIN
- SELECT last_name INTO v_lname
- FROM employees
- WHERE employee_id = 101;
- DBMS_OUTPUT.PUT_LINE('Employee last name is '||v_lname);
+.
+.
+.
+ INSERT INTO employees (employee_id, last_name, job_id, manager_id, hire_date, 
+ salary, commission_pct, department_id)
+ VALUES (emp_sequence.NEXTVAL, p_last_name, p_job_id, p_manager_id, p_hire_date, 
+ p_salary, p_commission_pct, p_department_id);
+.
+.
+.
 END;
-
 
